@@ -37,6 +37,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
@@ -51,7 +52,9 @@ public class VersionsList extends ROMSuperActivity {
 	private ListView versionsListView;
 	
 	private Vector<ROMVersion> modVersions;
-	
+
+	private TextView repoTitleTextView;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,7 +62,9 @@ public class VersionsList extends ROMSuperActivity {
 		
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		shared = SharedData.getInstance();
-		
+
+		repoTitleTextView = (TextView)this.findViewById(R.id.versionRepo);
+
 		String prefRepo = preferences.getString("repository_url", getString(R.string.reposerver_url));
 		if(!TextUtils.isEmpty(prefRepo))
 			shared.setRepositoryUrl(prefRepo);
@@ -204,6 +209,8 @@ public class VersionsList extends ROMSuperActivity {
 		/* Global variables */
 		shared.setRespositoryModel(myParser.parsedVersions.getPhoneModel());
 		shared.setRepositoryROMName(myParser.parsedVersions.getName());
+
+		repoTitleTextView.setText(myParser.parsedVersions.getName());
 
 		// the repository is not for the current model (and not empty for common stuff)
 		if(!shared.getRepositoryModel().equals(SharedData.LOCAL_MODEL) && !TextUtils.isEmpty(shared.getRepositoryModel())) {
