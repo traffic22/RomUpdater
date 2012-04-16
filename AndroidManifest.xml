@@ -40,4 +40,6 @@
     <uses-permission android:name="android.permission.DELETE_CACHE_FILES" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
     <uses-permission android:name="android.permission.REBOOT" />
+
+    <uses-sdk android:minSdkVersion="8" />
 </manifest>
