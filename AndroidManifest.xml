@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="org.elegosproject.romupdater"
-      android:versionName="2.05-CM7" android:versionCode="7205">
+      android:versionName="2.06-CM7" android:versionCode="7206">
     <application
         android:label="@string/app_name"
         android:icon="@drawable/ic_launcher_romupdater"
